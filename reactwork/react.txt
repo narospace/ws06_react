@@ -1,0 +1,53 @@
+yarn 설치
+    npm install --global yarn 
+   	yarn --version 으로 확인
+
+npm(Node Packaged Manager) : 
+- Node.js로 만들어진 package(module)를 관리해주는 툴
+- 모듈을 웹에서 받아서 설치하고 관리해주는 프로그램
+
+리액트 앱 패키지 다운
+방법 2가지
+
+npm install -g create-react-app
+yarn global add create-react-app
+최초 1번만 컴퓨터가 바뀌면 재실행
+
+리액트 프로젝트 생성
+reactwork 폴더로 이동
+
+순서대로 실행
+create-react-app react-first :프로젝트 생성
+cd react-first   : 프로젝트 폴더로 이동
+yarn start 또는 npm start : 프로젝트 실행
+
+리액트 설치 (공식사이트 : https://reactjs.org/)
+ 
+React 는 UI 컴포넌트 라이브러리이다
+장점
+1. 단순한 앱개발 :React 는 순수 자바스크립트로 만든 컴포넌트 기반
+            	아키텍쳐이다
+2. 빠른 UI : 가상 DOM 제공
+3. 코드량 감소 : React 커뮤니티와 개발 생태계를 통해 수많은 라이브러리와
+              	 컴포넌트를 접할수있다
+ 
+단점 :
+     	1. 리액트는 단방향 데이타 바인딩만 제공한다
+     	2. 리액트는 다른 프레임워크처럼 성숙하지 않다
+     	3. 리액트는 모든 기능을 갖춘 프레임워크는 아니다
+         여러 라이브러리를 같이 사용해야만 한다
+
+Hooks 는 리액트 v16.8 에 새로 도입된 기능(2019년 12월)
+함수형 컴포넌트에서는 원래 상태관리가 불가능(state)했었는데 
+가능하도록 하는 useState 기능이 추가되었다
+
+JSX : 함수 호출과 객체 생성을 위한 문법적 편의를 제공하는 자바스크립트의 확장으로 
+      특히 React.createElement 를 반복적으로 호출하는 불편을 해소한다
+
+** JSX 와 HTML 의 차이점
+태그 특성은 낙타 표기법
+(예) <input type=”text” maxlength=”30”/>  HTML
+     return  <input type=”text” maxLength=”30”/> JSX 낙타표기법
+ 
+모든 요소는 짝이 맞아야 한다
+특성 이름이 HTML 언어 사양이 아닌 DOM API 에 기반을 둔다
