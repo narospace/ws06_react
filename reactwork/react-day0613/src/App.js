@@ -7,9 +7,10 @@ import FourApp from './components/FourApp';
 import FiveApp from './components/FiveApp';
 import SixApp from './components/SixApp';
 import SevenApp from './components/SevenApp';
+import EightApp from './components/EightApp';
 
 function App() {
-  const [idx, setIdx] = useState(7);
+  const [idx, setIdx] = useState(8);
   const selectComponent=(e)=>{
     setIdx(Number(e.target.value));
   }
@@ -42,11 +43,16 @@ function App() {
         </label>
         &nbsp;
         <label>
-          <input onClick={selectComponent} type='radio' name='comp' defaultValue='7' defaultChecked/>SevenApp
+          <input onClick={selectComponent} type='radio' name='comp' defaultValue='7' />SevenApp
+        </label>
+        &nbsp;
+        <label>
+          <input onClick={selectComponent} type='radio' name='comp' defaultValue='8' defaultChecked/>EightApp
         </label>
       </div>
       <hr/>
-      {idx===1?<OneApp/>:idx===2?<TwoApp/>:idx===3?<ThreeApp/>:idx===4?<FourApp/>:idx===5?<FiveApp/>:idx===6?<SixApp/>:<SevenApp/>}
+      {idx===1?<OneApp/>:idx===2?<TwoApp/>:idx===3?<ThreeApp/>:idx===4?<FourApp/>:idx===5?<FiveApp/>:
+        idx===6?<SixApp/>:idx===7?<SevenApp/>:<EightApp/>}
     </div>
   );
 }

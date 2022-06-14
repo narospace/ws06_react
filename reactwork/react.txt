@@ -52,13 +52,13 @@ JSX : 함수 호출과 객체 생성을 위한 문법적 편의를 제공하는 
 모든 요소는 짝이 맞아야 한다
 특성 이름이 HTML 언어 사양이 아닌 DOM API 에 기반을 둔다
 
+[MUI https://mui.com/material-ui/getting-started/installation/] 
 
 [폰트]
 <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&family=Jua&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
-[MUI https://mui.com/material-ui/getting-started/installation/] 
 
 yarn
 yarn add @mui/material @emotion/react @emotion/styled
@@ -69,5 +69,9 @@ npm
 npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/material @mui/styled-engine-sc styled-components
 npm install @mui/icons-material
+
+라우터
+yarn add react-router-dom
+npm install  react-router-dom
 
 

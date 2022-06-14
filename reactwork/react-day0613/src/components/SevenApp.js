@@ -39,6 +39,11 @@ const SevenApp=()=>{
     }));
   }
 
+  // 데이터 삭제하는 이벤트
+  const dataDelete = (idx) => {
+    setBoard(board.filter((item, i)=>(i!==idx)));
+  }
+
   return (
     <div>
       <h3 className="alert alert-info">SevenApp 컴포넌트(부모, 자식 컴포넌트 통신)</h3>
@@ -56,7 +61,8 @@ const SevenApp=()=>{
         </thead>
         <tbody>
           {
-            board.map((row, index)=>(<RowItemApp row={row} key={index}/>))
+            board.map((row, index)=>(<RowItemApp row={row} key={index}
+              idx={index} onDelete={dataDelete}/>))
           }
         </tbody>
       </table>
