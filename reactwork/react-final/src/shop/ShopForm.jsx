@@ -3,6 +3,7 @@ import { useState } from 'react';
 import '../App.css';
 
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 export default function ShopForm() {
   const [photo, setPhoto] = useState('');
@@ -10,9 +11,12 @@ export default function ShopForm() {
   const [su, setSu] = useState('');
   const [dan, setDan] = useState('');
 
+  const navi = useNavigate();
+
   // url 등록
   let uploadUrl = "http://localhost:9009/shop/upload";
   let photoUrl = "http://localhost:9009/save/";
+  let insertUrl = "http://localhost:9009/shop/insert";
 
   // file change 시 호출 이벤트
   const uploadImage = (e) => {
@@ -32,6 +36,23 @@ export default function ShopForm() {
     }) 
   }
 
+  // 추가하는 함수 이벤트
+  const onInsert=()=>{
+
+    axios.post(insertUrl, {sangpum:sangpum, su, dan}) // key==value 일 경우 키 생략가능
+    .then(res=>{
+      // insert 성공 후 처리할 코드들
+      /*  페이지가 다르기 때문에 필요없음
+          setSangpum('');
+          setSu('');
+          setDan('');
+          setPhoto('');
+      */   
+      // 목록으로 이동
+      navi("/shop/list");
+    })
+  }
+
   return (
     <>
       <table className='table table-bordered' style={{width:'600px'}}>
@@ -40,9 +61,12 @@ export default function ShopForm() {
           <tr>
             <th width='100' style={{backgroundColor:'#fef'}}>상품명</th>
             <td width='300'>
-              <input type='text' className='form-control' style={{width:'250px'}}/>
+              <input type='text' className='form-control' style={{width:'250px'}}
+                onChange={(e)=>{
+                setSangpum(e.target.value);
+              }}/>
             </td>
-            <th></th>
+            <th>{sangpum}</th>
           </tr>
           <tr>
             <th width='100' style={{backgroundColor:'#fef'}}>상품사진</th>
@@ -55,16 +79,22 @@ export default function ShopForm() {
           <tr>
             <th width='100' style={{backgroundColor:'#fef'}}>수량</th>
             <td width='300'>
-              <input type='text' className='form-control' style={{width:'120px'}}/>
+              <input type='text' className='form-control' style={{width:'120px'}}
+                onChange={(e)=>{
+                  setSu(e.target.value);
+                }}/>
             </td>
-            <th></th>
+            <th>{su}</th>
           </tr>
           <tr>
             <th width='100' style={{backgroundColor:'#fef'}}>단가</th>
             <td width='300'>
-              <input type='text' className='form-control' style={{width:'150px'}}/>
+              <input type='text' className='form-control' style={{width:'150px'}}
+                onChange={(e)=>{
+                  setDan(e.target.value);
+                }}/>
             </td>
-            <th></th>
+            <th>{dan}</th>
           </tr>
           <tr style={{height:'160px'}}>
             <td colSpan='2'>
@@ -73,7 +103,8 @@ export default function ShopForm() {
             </td>
             <td>
               <button type='button' className='btn btn-success' 
-                style={{width:'100px', height:'100px', marginLeft:'30px'}}>상품등록</button>
+                style={{width:'100px', height:'100px', marginLeft:'30px'}}
+                  onClick={onInsert}>상품등록</button>
             </td>
           </tr>
         </tbody>
