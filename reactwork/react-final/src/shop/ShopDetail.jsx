@@ -11,14 +11,17 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function ShopDetail() {
+  // .env 파일로부터 전역변수 사용(서버 재시작해야 적용)
+  const SPRING_URL = process.env.REACT_APP_SPRING_URL;
+
   const {num} = useParams();
   const [data, setData] = useState(''); // dto가 들어갈 변수
   let navi = useNavigate();
 
   // url 등록
-  let detailUrl = "http://localhost:9009/shop/detail?num=" + num;
-  let photoUrl  = "http://localhost:9009/save/";
-  let deleteUrl = "http://localhost:9009/shop/delete?num=" + num;
+  let detailUrl = SPRING_URL + "shop/detail?num=" + num;
+  let photoUrl  = SPRING_URL + "save/";
+  let deleteUrl = SPRING_URL + "shop/delete?num=" + num;
 
   // 삭제 다이얼로그 모달 띄우기
   const [open, setOpen] = React.useState(false);
@@ -107,7 +110,7 @@ export default function ShopDetail() {
               <button type='button' className='btn btn-success' 
                 onClick={()=>{navi("/shop/form");}}>상품추가</button>
               <button type='button' className='btn btn-warning' 
-                onClick={()=>{}}>수정</button>
+                onClick={()=>{navi(`/shop/updateform/${num}`)}}>수정</button>
               <button type='button' className='btn btn-danger' 
                 onClick={handleClickOpen}>삭제</button>
             </td>

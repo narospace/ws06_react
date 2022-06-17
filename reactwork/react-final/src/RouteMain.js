@@ -9,6 +9,8 @@ import Board from './board/Board';
 import Login from './login/Login';
 import {Shop, ShopDetail, ShopForm} from './shop';
 import Member from './member/Member';
+import ShopUpdateForm from './shop/ShopUpdateForm';
+import Memo from './memo/Memo';
 
 export default function RouteMain() {
   return (
@@ -25,6 +27,10 @@ export default function RouteMain() {
           <Route path='/shop/list' element={<Shop/>}/>
           <Route path='/shop/form' element={<ShopForm/>}/>
           <Route path='/shop/detail/:num' element={<ShopDetail/>}/>
+          <Route path='/shop/updateform/:num' element={<ShopUpdateForm/>}/>
+
+          {/* Memo */}
+          <Route path='/memo' element={<Memo/>}/>
 
           <Route path='/board/list' element={<Board/>}/>
           <Route path='/member/form' element={<Member/>}/>

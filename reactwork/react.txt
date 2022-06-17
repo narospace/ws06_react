@@ -96,3 +96,16 @@ npm install  react-router-dom
 엑시오스 설치
 yarn add axios
 npm install axios
+
+
+
+[스프링]
+
+MemoSql.xml
+MemoService
+MemoMapper
+
+MemoController
+/memo/insert  => 닉네임,메세지 받아서 db저장
+/memo/list =>전체 메모 List 로 반환
+/memo/delete => num 에 해당하는 메모 삭제
