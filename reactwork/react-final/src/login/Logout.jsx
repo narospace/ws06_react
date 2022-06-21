@@ -4,33 +4,32 @@ import '../App.css';
 // import { useNavigate } from 'react-router-dom';
 
 export default function Logout() {
+  const [name, setName] = useState('');
   let id = localStorage.myid;
-  const url = process.env.REACT_APP_SPRING_URL + "member/name?id=" + id;
-  const [loginName, setLoginName] = useState('');
-  // const navi = useNavigate();
 
-  const userName=()=>{
+  const initFunc=()=>{
+    const url = process.env.REACT_APP_SPRING_URL + "member/getname?id=" + id;
     axios.get(url)
     .then(res=>{
-      setLoginName(res.data);
+      setName(res.data);
     })
   }
 
+  const btnLogout=()=>{
+    localStorage.removeItem("loginok");
+    localStorage.removeItem("myid");
+    window.location.reload();
+  }
+
   useEffect(()=>{
-    userName();
-  }, []);
+    initFunc();
+  }, []); // 처음 랜더링시 한번만 호출
 
   return (
-    <>
-      <h3>환영합니다. {loginName} 님
-        <button type='button' className='btn btn-warning' style={{marginLeft:'10px'}}
-        onClick={()=>{
-          localStorage.clear();
-          
-          // 새로고침
-          window.location.reload(); 
-        }}>로그아웃</button>
-      </h3>
-    </>
+    <div style={{marginLeft:'100px', marginTop:'100px'}}>
+      <b style={{fontSize:'20px'}}>{name}({id})님</b>
+        <button type='button' className='btn btn-warning' style={{marginLeft:'50px'}}
+        onClick={btnLogout}>로그아웃</button>
+    </div>
   );
 }

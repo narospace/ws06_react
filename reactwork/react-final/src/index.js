@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  // <React.StrictMode>
+  // <React.StrictMode> 주석처리(alert창이 두번 호출)
     <Root />
   // </React.StrictMode>
 );

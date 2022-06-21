@@ -201,7 +201,10 @@ const Member=()=>{
                       <td colSpan={2} style={{textAlign:'center'}}>
                           <button type="submit" className="btn btn-info">가입하기</button>
                           <button type="button" className="btn btn-warning"
-                          style={{marginLeft:'5px'}}>회원명단</button>
+                          style={{marginLeft:'5px'}} 
+                          onClick={()=>{
+                            navi('/member/list');
+                          }}>회원명단</button>
                       </td>
                     </tr>
                 </tbody>

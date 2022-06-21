@@ -71,3 +71,14 @@ td.detail button{
   width: 100px;
   margin-right: 5px;
 }
+
+.list-icon{
+  position: absolute;
+  top: 10px;
+  left: 300px;
+}
+
+.list-icon span{
+  font-size: 20px;
+  margin-left: 5px;
+}
