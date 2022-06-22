@@ -16,6 +16,7 @@ import BoardForm from './board/BoardForm';
 import BoardList1 from './board/BoardList1';
 import BoardList3 from './board/BoardList3';
 import BoardList2 from './board/BoardList2';
+import BoardDetail from './board/BoardDetail';
 
 export default function RouteMain() {
   return (
@@ -38,16 +39,15 @@ export default function RouteMain() {
           <Route path='/memo' element={<Memo/>}/>
 
           {/* Board */}
-          <Route path='/board/list' element={<Board/>}/>
+          <Route path='/board/list/:currentPage' element={<Board/>}/>
           <Route path='/board/form' element={<BoardForm/>}/>
-          <Route path='/board/list1' element={<BoardList1/>}/>
-          <Route path='/board/list1' element={<BoardList2/>}/>
-          <Route path='/board/list1' element={<BoardList3/>}/>
+          <Route path='/board/detail/:num/:currentPage' element={<BoardDetail/>}/>
 
           {/* Member */}
           <Route path='/member/form' element={<Member/>}/>
           <Route path='/member/list' element={<MemberList/>}/>
           
+          {/* Login */}
           <Route path='/login' element={<Login/>}/>
           <Route path='/about' element={<About/>}/>
 
